@@ -1,6 +1,7 @@
 __author__ = 'PBrossier'
 
 
+import glob # Unix style pathname pattern expansion
 import re   # Regular expressions
 import sys  # System-specific parameters and functions
 
@@ -68,3 +69,16 @@ try:
     print 'sum =', total
 except ValueError:
     print 'Please supply integer arguments'
+print '\n'
+
+
+# Read from file
+python_files = glob.glob('*.py')
+for file_name in sorted(python_files):
+    print '------' + file_name
+
+    with open(file_name) as f:
+        for line in f:
+            print line.rstrip()
+
+    print
