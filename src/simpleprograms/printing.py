@@ -1,8 +1,8 @@
 __author__ = 'PBrossier'
 
 
-# Import module regular expression
-import re
+import re   # Regular expressions
+import sys  # System-specific parameters and functions
 
 
 # Code from https://wiki.python.org/moin/SimplePrograms
@@ -56,7 +56,15 @@ my_purchase = {
 grocery_bill = sum(prices[fruit] * my_purchase[fruit] for fruit in my_purchase)
 print 'I owe the grocer $%.3f' % grocery_bill
 print 'I owe the grocer ${:.3f}'.format(grocery_bill)
-print '\n'
 print 'Is orange a key of the dictionay prices?', 'orange' in prices
 print 'Is apple a key of the dictionay prices?', 'apple' in prices
 print 'Give me all keys of the dictionay prices', prices.keys()
+print '\n'
+
+
+# Grab script parameters and Exception handling
+try:
+    total = sum(int(arg) for arg in sys.argv[1:])
+    print 'sum =', total
+except ValueError:
+    print 'Please supply integer arguments'
