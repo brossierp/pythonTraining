@@ -4,6 +4,7 @@ __author__ = 'PBrossier'
 import glob # Unix style pathname pattern expansion
 import re   # Regular expressions
 import sys  # System-specific parameters and functions
+from time import localtime
 
 
 # Code from https://wiki.python.org/moin/SimplePrograms
@@ -82,3 +83,22 @@ for file_name in sorted(python_files):
             print line.rstrip()
 
     print
+print '\n'
+
+
+# Import specific function
+activities = {8: 'Sleeping',
+              9: 'Commuting',
+              17: 'Working',
+              18: 'Commuting',
+              20: 'Eating',
+              22: 'Resting'}
+time_now = localtime()
+hour = time_now.tm_hour
+for activity_time in sorted(activities.keys()):
+    if hour < activity_time:
+        print activities[activity_time]
+        break
+else:
+    print 'Unknown, AFK or sleeping!'
+print '\n'
