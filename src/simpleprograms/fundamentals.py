@@ -86,7 +86,7 @@ for file_name in sorted(python_files):
 print '\n'
 
 
-# Import specific function
+# Import specific function and If test
 activities = {8: 'Sleeping',
               9: 'Commuting',
               17: 'Working',
@@ -101,4 +101,19 @@ for activity_time in sorted(activities.keys()):
         break
 else:
     print 'Unknown, AFK or sleeping!'
+print '\n'
+
+
+# Triple-quoted string and While loop
+REFRAIN = '''
+%d bottles of beer on the wall,
+%d bottles of beer,
+take one down, pass it around,
+%d bottles of beer on the wall!
+'''
+bottles_of_beer = 99
+while bottles_of_beer > 1:
+    print REFRAIN % (bottles_of_beer, bottles_of_beer,
+                     bottles_of_beer - 1)
+    bottles_of_beer -= 1
 print '\n'
